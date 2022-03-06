@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>확률과 통계</title>  
+        <script>
+            var P = function(n, r){//n==r일 때 n!, n!=r일 때 nPr
+                if(r == 0) return 1;
+                else return n*P(n-1, r-1);
+            }
+            
+            var C = function(n, r){
+                return P(n, r)/P(r, r);
+            }
+
+            var Pi = function(n, r){
+                result = n;
+                for(r; r>1; r--) result *=n;
+                return result;
+            }
+
+            var H = function(n, r){
+                return C(n+r-1, r);
+            }
+
+            
+        </script>
+    </head>
+    <body>
+        <input type="text" id="input">
+        <input type="button" value="계승(!)" onclick="var arr=document.getElementById('input').value.split(','); document.write(P(arr[0], arr[0]))">
+        <input type="button" value="순열(P)" onclick="var arr=document.getElementById('input').value.split(','); document.write(P(arr[0], arr[1]))">
+        <input type="button" value="조합(C)" onclick="var arr=document.getElementById('input').value.split(','); document.write(C(arr[0], arr[1]))">
+        <input type="button" value="중복순열(ㅠ)" onclick="var arr=document.getElementById('input').value.split(','); document.write(Pi(arr[0], arr[1]))">
+        <input type="button" value="중복조합(H)" onclick="var arr=document.getElementById('input').value.split(','); document.write(H(arr[0], arr[1]))">
+    </body>
+</html>
