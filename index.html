@@ -30,11 +30,11 @@
     </head>
     <body>
         <input type="text" id="input" value="n,r의 형태로 입력">
-        <input type="button" value="계승(!)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '! = ' + P(arr[0], arr[0]))">
-        <input type="button" value="순열(P)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + 'P' + arr[1] + ' = ' + P(arr[0], arr[1]))">
-        <input type="button" value="조합(C)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + 'C' + arr[1] + ' = ' + C(arr[0], arr[1]))">
-        <input type="button" value="중복순열(π)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + 'π' + arr[1] + ' = ' + Pi(arr[0], arr[1]))">
-        <input type="button" value="중복조합(H)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + 'H' + arr[1] + ' = ' + H(arr[0], arr[1]))">
+        <input type="button" value="계승(!)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>!</b> = ' + P(arr[0], arr[0]))">
+        <input type="button" value="순열(P)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>P</b>' + arr[1] + ' = ' + P(arr[0], arr[1]))">
+        <input type="button" value="조합(C)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>C</b>' + arr[1] + ' = ' + C(arr[0], arr[1]))">
+        <input type="button" value="중복순열(Π)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>Π</b>' + arr[1] + ' = ' + Pi(arr[0], arr[1]))">
+        <input type="button" value="중복조합(H)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>H</b>' + arr[1] + ' = ' + H(arr[0], arr[1]))">
         <div id="div"></div>
     </body>
 </html>
