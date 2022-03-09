@@ -1,44 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>확률과 통계</title>  
-        <script>
-            var P = function(n, r){//n==r일 때 n!, n!=r일 때 nPr
-                if(r == 0) return 1;
-                else return n*P(n-1, r-1);
-            }
-            
-            var C = function(n, r){
-                return P(n, r)/P(r, r);
-            }
 
-            var Pi = function(n, r){
-                result = n;
-                for(r; r>1; r--) result *=n;
-                return result;
-            }
+<head>
+    <title>확률과 통계</title>
+    <script>
+        
+        var P = function (n, r) {//n==r일 때 n!, n!=r일 때 nPr
+            if (r == 0) return 1;
+            else return n * P(n - 1, r - 1);
+        }
+        
+        var Fout = function (n, r){
+            return n + '<b>!</b>' + ' = ' + P(n,n);
+        }
 
-            var H = function(n, r){
-                return C(Number(n) + Number(r) - 1, r);
-            }
-            
-            var reload = function(){
-                document.write('<input type="button" value="re" onclick="location.reload">')
-            }
-        </script>
-        <style>
-            h1{
-                display: inline;
-            }
-        </style>
-    </head>
-    <body>
-        <input type="text" id="input" value="n,r의 형태로 입력">
-        <input type="button" value="계승(!)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>!</b> = ' + P(arr[0], arr[0])); reload();">
-        <input type="button" value="순열(P)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>P</b>' + arr[1] + ' = ' + P(arr[0], arr[1]))">
-        <input type="button" value="조합(C)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>C</b>' + arr[1] + ' = ' + C(arr[0], arr[1]))">
-        <input type="button" value="중복순열(Π)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>Π</b>' + arr[1] + ' = ' + Pi(arr[0], arr[1]))">
-        <input type="button" value="중복조합(H)" onclick="var arr=document.getElementById('input').value.split(','); document.write(arr[0] + '<b>H</b>' + arr[1] + ' = ' + H(arr[0], arr[1]))">
-        <div id="div"></div>
-    </body>
+        var Pout = function(n, r){
+            return n + '<b>P</b>' + r + ' = ' + P(n,r);
+        }
+
+        var C = function (n, r) {
+            return P(n, r) / P(r, r);
+        }
+
+        var Cout = function(n, r){
+            return n + '<b>C</b>' + r + ' = ' + C(n,r);
+        }
+
+        var Pi = function (n, r) {
+            result = n;
+            for (r; r > 1; r--) result *= n;
+            return result;
+        }
+
+        var Piout = function(n, r){
+            return n + '<b>Π</b>' + r + ' = ' + Pi(n,r);
+        }
+
+        var H = function (n, r) {
+            return C(Number(n) + Number(r) - 1, r);
+        }
+
+        var Hout = function(n, r){
+            return n + '<b>H</b>' + r + ' = ' + H(n,r);
+        }
+
+    </script>
+    <style>
+        body {
+            text-align: center;
+        }
+        #input{
+            margin-bottom:20px;
+        }
+        #content{
+            font-size:40px;
+            margin-top:15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>"n,r" 의 형태로 입력</h3>
+    <input type="text" id="input" style="font-size:30px; width:100px; text-align:center;"><br>
+    <input type="button" class="btn" value="계승(!)"
+        onclick="var arr=document.getElementById('input').value.split(','); var con = document.getElementById('content').innerHTML=Fout(arr[0], arr[1]); ">
+    <input type="button" class="btn" value="순열(P)"
+        onclick="var arr=document.getElementById('input').value.split(','); var con = document.getElementById('content').innerHTML=Pout(arr[0], arr[1]); ">
+    <input type="button" class="btn" value="조합(C)"
+        onclick="var arr=document.getElementById('input').value.split(','); var con = document.getElementById('content').innerHTML=Cout(arr[0], arr[1]); ">
+    <input type="button" class="btn" value="중복순열(Π)"
+        onclick="var arr=document.getElementById('input').value.split(','); var con = document.getElementById('content').innerHTML=Piout(arr[0], arr[1]); ">
+    <input type="button" class="btn" value="중복조합(H)"
+        onclick="var arr=document.getElementById('input').value.split(','); var con = document.getElementById('content').innerHTML=Hout(arr[0], arr[1]); ">
+    <div id="content"></div>
+</body>
+
 </html>
