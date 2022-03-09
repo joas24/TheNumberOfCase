@@ -44,6 +44,8 @@
             return n + '<b>H</b>' + r + ' = ' + H(n,r);
         }
 
+        var res = new Number;
+        var prior = new String; 
     </script>
     <style>
         body {
@@ -53,7 +55,7 @@
             margin-bottom:20px;
         }
         #content{
-            font-size:40px;
+            font-size:50px;
             margin-top:15px;
         }
     </style>
@@ -61,7 +63,11 @@
 
 <body>
     <h3>"n,r" 의 형태로 입력</h3>
-    <input type="text" id="input" style="font-size:30px; width:100px; text-align:center;"><br>
+    <input type="text" id="input" style="font-size:30px; width:100px; text-align:center;">
+    <input type="button" value="+" 
+        onclick="var plus = document.getElementById('content').innerHTML; res += Number(plus.substring(plus.indexOf('=')+1, plus.length)); console.log(res); 
+        prior += plus.substring(0, plus.indexOf('=')); console.log(prior); document.getElementById('sum').innerHTML= prior + ' = ' + res; prior += ' + ';">
+    <br>
     <input type="button" class="btn" value="계승(!)"
         onclick="var arr=document.getElementById('input').value.split(','); var con = document.getElementById('content').innerHTML=Fout(arr[0], arr[1]); ">
     <input type="button" class="btn" value="순열(P)"
@@ -72,7 +78,8 @@
         onclick="var arr=document.getElementById('input').value.split(','); var con = document.getElementById('content').innerHTML=Piout(arr[0], arr[1]); ">
     <input type="button" class="btn" value="중복조합(H)"
         onclick="var arr=document.getElementById('input').value.split(','); var con = document.getElementById('content').innerHTML=Hout(arr[0], arr[1]); ">
-    <div id="content"></div>
+    <div id="content"></div></br>
+    <div id="sum"></div>
 </body>
 
 </html>
